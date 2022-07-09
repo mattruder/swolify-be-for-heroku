@@ -10,9 +10,11 @@ describe Game do
   describe "validations" do
     it "should be created with a default win value of false" do
       user = User.create!(name: "Tony Soprano", email: "who_ate_all_the_gabagool@sopranos.net")
-      game = user.games.create!
+      game = user.games.create!(level: 0)
 
       expect(game.win).to eq(false)
     end
+
+    it { should validate_presence_of :level }
   end
 end
