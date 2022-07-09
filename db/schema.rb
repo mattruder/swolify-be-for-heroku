@@ -10,9 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_07_09_200017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.integer "category"
+    t.string "duration"
+    t.string "video"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "game_activities", force: :cascade do |t|
+    t.bigint "activity_id"
+    t.bigint "game_id"
+    t.boolean "completed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_game_activities_on_activity_id"
+    t.index ["game_id"], name: "index_game_activities_on_game_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.boolean "win", default: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "game_activities", "activities"
+  add_foreign_key "game_activities", "games"
+  add_foreign_key "games", "users"
 end
