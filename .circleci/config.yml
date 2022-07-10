@@ -63,8 +63,8 @@ jobs:
           command: bundle exec rails db:create
       # Run rspec in parallel
       - run:
-        name: test
-        command: bundle exec rspec
+          name: test
+          command: bundle exec rspec
       # - ruby/rspec-test
 # We use workflows to orchestrate the jobs that we declared above.
 workflows:
