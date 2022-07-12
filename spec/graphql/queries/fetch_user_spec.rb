@@ -102,6 +102,9 @@ RSpec.describe 'user query' do
     game_win_2 = Game.create!(win: true, user_id: user_1.id, level: 0)
     game_lose = Game.create!(user_id: user_1.id, level: 0)
 
+    user_2 = User.create!(name: "Carl", email: "carl@turing.edu")
+    carl_game = Game.create!(user_id: user_2.id, level: 1)
+
     query = <<~GQL
     query {
       fetchUser(id: #{user_1.id}) {
@@ -120,5 +123,38 @@ RSpec.describe 'user query' do
     result = SwolifyBeSchema.execute(query)
 
     expect(result.dig("data", "fetchUser", "gameCount")).to eq(3)
+  end
+
+  it "returns the user's activity count" do
+    user_1 = User.create!(name: "Andrew", email: "andrew@turing.edu")
+    game_win_1 = Game.create!(win: true, user_id: user_1.id, level: 0)
+    game_win_2 = Game.create!(win: true, user_id: user_1.id, level: 0)
+    game_lose = Game.create!(user_id: user_1.id, level: 0)
+    game_win_1.activities.create!(name: "pushups", category: "upper body", duration: "10 reps", video: "video.com", description: "push the earth down")
+    game_win_1.activities.create!(name: "situps", category: "lower body", duration: "10 reps", video: "video.com", description: "push the earth down")
+
+    user_2 = User.create!(name: "Carl", email: "carl@turing.edu")
+    carl_game = Game.create!(user_id: user_2.id, level: 1)
+    carl_game.activities.create!(name: "climb the chair", category: "upper body", duration: "forever", video: "video.com", description: "tear up the chair")
+
+    query = <<~GQL
+    query {
+      fetchUser(id: #{user_1.id}) {
+        name
+        email
+        wins
+        losses
+        gameCount
+        activityCount
+        activities {
+          name
+        }
+      }
+    }
+    GQL
+
+    result = SwolifyBeSchema.execute(query)
+
+    expect(result.dig("data", "fetchUser", "activityCount")).to eq(2)
   end
 end

@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def game_count
     games.count
   end
+
+  def activity_count
+    activities.count
+  end
 end
