@@ -70,9 +70,10 @@ RSpec.describe 'user query' do
     expect(result.dig("errors").first["message"]).to eq("User does not exist")
   end
 
-  it "returns the user's win percentage" do
+  it "returns the user's wins and losses" do
     user_1 = User.create!(name: "Andrew", email: "andrew@turing.edu")
-    game_win = Game.create!(win: true, user_id: user_1.id, level: 0)
+    game_win_1 = Game.create!(win: true, user_id: user_1.id, level: 0)
+    game_win_2 = Game.create!(win: true, user_id: user_1.id, level: 0)
     game_lose = Game.create!(user_id: user_1.id, level: 0)
 
     query = <<~GQL
@@ -80,7 +81,8 @@ RSpec.describe 'user query' do
       fetchUser(id: #{user_1.id}) {
         name
         email
-        winPercentage
+        wins
+        losses
         activities {
           name
         }
@@ -89,7 +91,8 @@ RSpec.describe 'user query' do
     GQL
 
     result = SwolifyBeSchema.execute(query)
-    
-    expect(result.dig("data", "fetchUser", "winPercentage")).to eq(0.5)
+
+    expect(result.dig("data", "fetchUser", "wins")).to eq(2)
+    expect(result.dig("data", "fetchUser", "losses")).to eq(1)
   end
 end

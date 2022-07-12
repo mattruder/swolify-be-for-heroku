@@ -6,7 +6,11 @@ class User < ApplicationRecord
   validates_presence_of :name, :email
   validates_uniqueness_of :email
 
-  def win_percentage
-    (games.where(win: true).count.to_f / games.count).round(2)
+  def wins
+    games.where(win: true).count
+  end
+  
+  def losses
+    games.where(win: false).count
   end
 end
