@@ -43,8 +43,9 @@ describe "modifyGame mutation", type: :request do
       GQL
 
       result = SwolifyBeSchema.execute(query)
-      binding.pry
-      expect(result.dig("data", "modifyGame", "game", "win")).to eq(true)
+
+      expect(result).to have_key("errors")
+      expect(result.dig("errors").first["message"]).to eq("Game does not exist")
     end
   end
 end
