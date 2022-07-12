@@ -6,5 +6,7 @@ module Types
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :level, Integer, null: true
+    field :activities, [Types::ActivityType], null: true
+    field :game_activities, [Types::GameActivityType], null: true
   end
 end
