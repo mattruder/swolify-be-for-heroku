@@ -95,4 +95,30 @@ RSpec.describe 'user query' do
     expect(result.dig("data", "fetchUser", "wins")).to eq(2)
     expect(result.dig("data", "fetchUser", "losses")).to eq(1)
   end
+
+  it "returns the user's game count" do
+    user_1 = User.create!(name: "Andrew", email: "andrew@turing.edu")
+    game_win_1 = Game.create!(win: true, user_id: user_1.id, level: 0)
+    game_win_2 = Game.create!(win: true, user_id: user_1.id, level: 0)
+    game_lose = Game.create!(user_id: user_1.id, level: 0)
+
+    query = <<~GQL
+    query {
+      fetchUser(id: #{user_1.id}) {
+        name
+        email
+        wins
+        losses
+        gameCount
+        activities {
+          name
+        }
+      }
+    }
+    GQL
+
+    result = SwolifyBeSchema.execute(query)
+
+    expect(result.dig("data", "fetchUser", "gameCount")).to eq(3)
+  end
 end

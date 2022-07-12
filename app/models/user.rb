@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def losses
     games.where(win: false).count
   end
+
+  def game_count
+    games.count
+  end
 end
