@@ -11,14 +11,19 @@ RSpec.describe 'create game mutation' do
     it 'creates a game' do
       level = "easy"
       categories = ["core", "upper body"]
+      input = {
+        user_id: user.id,
+        level: level,
+        categories: categories
+      }
       mutation = <<~GQL
       mutation {
-        createGame {
-          user_id: #{user.id}
-          level: #{level}
-          categories: #{categories}
+        createGame(input: #{input})
+        {
+          game {
+            level
+          }
         }
-      }
       GQL
 
       result = SwolifyBeSchema.execute(mutation)

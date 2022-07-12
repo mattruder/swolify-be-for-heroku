@@ -5,4 +5,8 @@ class Game < ApplicationRecord
 
   validates_presence_of :level
   enum level: ["easy", "hard"]
+
+  def add_activities(categories)
+    require "pry"; binding.pry
+  end
 end

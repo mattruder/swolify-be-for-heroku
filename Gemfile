@@ -38,13 +38,14 @@ group :development, :test do
   gem "shoulda-matchers"
   gem "jsonapi-serializer"
   gem "figaro"
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 group :test do
   gem "simplecov", require: false
   gem "rspec-rails"
-  gem "factory_bot_rails"
-  gem "faker"
+
 end
 
 group :development do
