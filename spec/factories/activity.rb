@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :activity do
-    name { Faker::Verb.base }
+    name { Faker::Lorem.sentence(word_count: 3) }
     category { Faker::Number.between(from: 0, to: 3) }
     duration { Faker::Lorem.sentence(word_count: 3) }
     video { "video.com" }

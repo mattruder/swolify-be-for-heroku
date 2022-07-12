@@ -26,7 +26,7 @@ describe "modifyGame mutation", type: :request do
 
       query = <<~GQL
         mutation {
-          modifyGame(input: { params: { id: #{game.id}, win: true, activities: [#{game_activity_2.id}, #{game_activity_6.id}, #{game_activity_5.id}, #{game_activity_3.id}]}}) {
+          modifyGame(input: { params: { id: #{game.id}, win: true, activities: ["Sit Ups", "Jumping Jacks", "Wall Sits", "BW Squats"]}}) {
             game {
               id
               win
@@ -70,7 +70,7 @@ describe "modifyGame mutation", type: :request do
 
       query = <<~GQL
         mutation {
-          modifyGame(input: { params: { id: 9999999999, win: true, activities: [#{game_activity_2.id}, #{game_activity_6.id}, #{game_activity_5.id}, #{game_activity_3.id}]}}) {
+          modifyGame(input: { params: { id: 99999999, win: true, activities: ["Sit Ups", "Jumping Jacks", "Wall Sits", "BW Squats"]}}) {
             game {
               id
               win
