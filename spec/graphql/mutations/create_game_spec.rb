@@ -10,11 +10,13 @@ RSpec.describe 'create game mutation' do
   describe 'create a game' do
     it 'creates a game' do
       level = "easy"
+      categories = ["core", "upper body"]
       mutation = <<~GQL
       mutation {
         createGame {
           user_id: #{user.id}
           level: #{level}
+          categories: #{categories}
         }
       }
       GQL
