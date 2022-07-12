@@ -5,6 +5,7 @@ class Mutations::ModifyGame < Mutations::BaseMutation
 
   def resolve(params:)
     game = Game.find(params[:id])
+    params[:activities].each { |id| GameActivity.find(id).update(completed: true) }
     if game.update(win: params[:win])
       {
         game: game
