@@ -84,6 +84,12 @@ describe "modifyGame mutation", type: :request do
 
       expect(result).to have_key("errors")
       expect(result.dig("errors").first["message"]).to eq("Game does not exist")
+      expect(GameActivity.find(game_activity_1.id).completed).to eq(false)
+      expect(GameActivity.find(game_activity_2.id).completed).to eq(false)
+      expect(GameActivity.find(game_activity_3.id).completed).to eq(false)
+      expect(GameActivity.find(game_activity_4.id).completed).to eq(false)
+      expect(GameActivity.find(game_activity_5.id).completed).to eq(false)
+      expect(GameActivity.find(game_activity_6.id).completed).to eq(false)
     end
   end
 end
