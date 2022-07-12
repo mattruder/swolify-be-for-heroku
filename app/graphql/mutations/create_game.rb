@@ -5,12 +5,15 @@ class Mutations::CreateGame < Mutations::BaseMutation
 
   field :game, Types::GameType, null: false
   field :errors, [String], null: false
-  # require "pry"; binding.pry
 
   def resolve(level:, user_id:, categories:)
     game = Game.new(level: level, user_id: user_id)
     if game.save
       game.add_activities(categories)
+      {
+        game: game,
+        errors: nil
+      }
     else
       {
         game: nil,
