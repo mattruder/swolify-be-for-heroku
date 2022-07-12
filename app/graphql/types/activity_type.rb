@@ -6,7 +6,6 @@ module Types
     field :duration, String, null: true
     field :video, String, null: true
     field :description, String, null: true
-    field :game_activity_id, Integer, null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
