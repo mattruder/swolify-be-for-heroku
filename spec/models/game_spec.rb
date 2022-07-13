@@ -17,4 +17,53 @@ describe Game do
 
     it { should validate_presence_of :level }
   end
+
+  describe "instance methods" do
+    let!(:user) { User.create!(name: "Nick Miller", email: "juliuspepperwood@the_loft.com")}
+
+    it '#activity_num' do
+      easy_game = Game.create!(user: user, level: "easy")
+      hard_game = Game.create!(user: user, level: "hard")
+
+      expect(easy_game.activity_num).to eq(9)
+      expect(hard_game.activity_num).to eq(16)
+    end
+
+    it '#unique_activity' do
+      core_activities = create_list(:activity, 5, category: 2)
+      cardio_activities = create_list(:activity, 5, category: 3)
+
+      game = Game.create!(user: user, level: "easy")
+
+      10.times do
+        game.unique_activity(["core", "cardio"])
+      end
+
+      expect(game.activities.count).to eq(10)
+      expect(game.activities.uniq).to eq(game.activities)
+    end
+
+    it '#add_activities' do
+      easy_game = Game.create!(user: user, level: "easy")
+      hard_game = Game.create!(user: user, level: "hard")
+
+      core_activities = create_list(:activity, 16, category: 2)
+      cardio_activities = create_list(:activity, 16, category: 3)
+
+      easy_game.add_activities(["core"])
+      hard_game.add_activities(["cardio", "core"])
+
+      easy_core = easy_game.activities.select {|act| act.core?}
+      easy_cardio = easy_game.activities.select {|act| act.cardio?}
+      hard_core = hard_game.activities.select {|act| act.core?}
+      hard_cardio = hard_game.activities.select {|act| act.cardio?}
+
+      expect(easy_game.activities.count).to eq(9)
+      expect(hard_game.activities.count).to eq(16)
+      expect(easy_core.count).to eq(9)
+      expect(easy_cardio.count).to eq(0)
+      expect(hard_core.count).to eq(8)
+      expect(hard_cardio.count).to eq(8)
+    end
+  end
 end
