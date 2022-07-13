@@ -39,6 +39,7 @@ describe Game do
         game.unique_activity(["core", "cardio"])
       end
 
+      expect(game.activities.count).to eq(10)
       expect(game.activities.uniq).to eq(game.activities)
     end
 
