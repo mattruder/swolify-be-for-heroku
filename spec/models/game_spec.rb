@@ -20,8 +20,26 @@ describe Game do
 
   describe "instance methods" do
     let!(:user) { User.create!(name: "Nick Miller", email: "juliuspepperwood@the_loft.com")}
-    
+
     it '#activity_num' do
+      easy_game = Game.create!(user: user, level: "easy")
+      hard_game = Game.create!(user: user, level: "hard")
 
+      expect(easy_game.activity_num).to eq(9)
+      expect(hard_game.activity_num).to eq(16)
+    end
 
+    it '#unique_activity' do
+      core_activities = create_list(:activity, 3, category: 2)
+      cardio_activities = create_list(:activity, 3, category: 3)
+
+      game = Game.create!(user: user, level: "easy")
+
+      5.times do
+        game.unique_activity(["core", "cardio"])
+      end
+
+      expect(game.activities.uniq).to eq(game.activities)
+    end
+  end
 end
