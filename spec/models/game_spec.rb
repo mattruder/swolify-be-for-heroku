@@ -17,4 +17,11 @@ describe Game do
 
     it { should validate_presence_of :level }
   end
+
+  describe "instance methods" do
+    let!(:user) { User.create!(name: "Nick Miller", email: "juliuspepperwood@the_loft.com")}
+    
+    it '#activity_num' do
+
+
 end
