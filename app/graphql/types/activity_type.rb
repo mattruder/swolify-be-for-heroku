@@ -8,9 +8,5 @@ module Types
     field :description, String, null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-
-    def game_activity_id
-      # require "pry"; binding.pry
-    end
   end
 end
