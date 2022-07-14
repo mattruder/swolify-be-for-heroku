@@ -19,6 +19,6 @@ class User < ApplicationRecord
   end
 
   def activity_count
-    activities.count
+    game_activities.joins(:activity).where(game_activities: { completed: true }).count
   end
 end
