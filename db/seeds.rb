@@ -34,6 +34,15 @@ situps = Activity.create!(name: "situps", category: "upper body", duration: "10 
 
 j_game_activity = GameActivity.create!(game_id: j_game.id, activity_id: situps.id)
 
+#user seeds
+User.create!(name: "Susan", email: "susan@turing.com")
+User.create!(name: "Andrew", email: "andrew@turing.com")
+User.create!(name: "James", email: "James@turing.com")
+User.create!(name: "Matt", email: "Matt@turing.com")
+User.create!(name: "Oakley", email: "Oakley@turing.com")
+User.create!(name: "Kevin", email: "Kevin@turing.com")
+User.create!(name: "Tyler", email: "Tyler@turing.com")
+User.create!(name: "Eli", email: "Eli@turing.com")
 
 #activity seeds
 
