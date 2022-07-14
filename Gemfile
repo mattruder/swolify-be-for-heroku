@@ -31,6 +31,7 @@ gem 'graphql', '1.11.6'
 gem "rspec_junit_formatter"
 gem "factory_bot_rails"
 gem "faker"
+gem "rack-cors"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
