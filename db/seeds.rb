@@ -36,7 +36,7 @@ User.create!(name: "Eli", email: "Eli@turing.com")
 #activity seeds
 
 #free spot
-Activity.create!(name: "Drink Water", description: "Your Free Space! Hydrate yourself!", duration: "As much as you need!", video: "water@video", category: "free")
+Activity.create!(name: "Drink Water", description: "Your Free Space! Hydrate yourself!", duration: "As much as you need!", video: "PTTMp08e8O8", category: "free")
 
 #upper_body_activities 12
 Activity.create!(name: "Arm Circles", description: "1. Stand with your arms extended by your sides, perpendicular to your torso. 2. Slowly make clockwise circles about 1 foot in diameter 3. Then reverse the movement, going counterclockwise.", category: "upper body", duration: "20-30 seconds each direction", video: "K6pluh6FSI0")
