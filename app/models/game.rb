@@ -2,9 +2,14 @@ class Game < ApplicationRecord
   belongs_to :user
   has_many :game_activities, dependent: :destroy
   has_many :activities, through: :game_activities
+  after_create :add_free_activity
 
   validates_presence_of :level
   enum level: ["easy", "hard"]
+
+  def add_free_activity
+    activities << Activity.where(category: "free").first
+  end
 
   def complete_game_activities(activity_names)
     GameActivity.complete_by_ids(completed_game_activities(activity_names))
@@ -21,7 +26,7 @@ class Game < ApplicationRecord
       GameActivity.find_by(activity_id: activity.ids.first).id
     end
   end
-  
+
   def add_activities(categories)
     turns = activity_num.divmod(categories.count)
     turns[0].times do
@@ -43,9 +48,9 @@ class Game < ApplicationRecord
 
   def activity_num
     if self.easy?
-      9
+      8
     elsif self.hard?
-      16
+      15
     end
   end
 end

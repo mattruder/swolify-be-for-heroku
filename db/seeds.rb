@@ -21,18 +21,7 @@ andrew = User.create!(name: "andrew", email: "andrew@example.com")
 
 
 
-a_game_win = Game.create!(win: true, user_id: andrew.id, level: 0)
-a_game_lose = Game.create!(user_id: andrew.id, level: 0)
 
-pushups = Activity.create!(name: "pushups", category: "upper body", duration: "10 reps", video: "video.com", description: "push the earth down")
-
-a_game_activity = GameActivity.create!(game_id: a_game_win.id, activity_id: pushups.id)
-
-j_game = Game.create!(user_id: james.id, level: 0)
-
-situps = Activity.create!(name: "situps", category: "upper body", duration: "10 reps", video: "video.com", description: "push the earth down")
-
-j_game_activity = GameActivity.create!(game_id: j_game.id, activity_id: situps.id)
 
 #user seeds
 User.create!(name: "Susan", email: "susan@turing.com")
@@ -120,3 +109,16 @@ Activity.create!(name: "Quadruped Leg Raise", description: "1. Start on your han
 Activity.create!(name: "Calf Raises", description: "1. From a standing position, slowly rise up on your toes, keeping your knees straight and heels off the floor. 2. Hold briefly, then come back down. 3. Aaaand repeat. 4. Try standing on something elevated (like a step) to achieve a wider range of motion.", category: "lower body", duration: "20 reps, twice", video: "-M4-G8p8fmc")
 Activity.create!(name: "Dead Lifts", description: "1. Stand with your feet hip-distance apart and hold a dumbbell in each hand with a pronated (hands facing thighs) grip. Engaging your core, back, and glutes, hinge your hips forward to lower the weights down your legs until your torso is parallel to the floor. 2. Keep a slight bend in the knees and pull your shoulders back—and not hunched over. 3. Then, straighten your legs to stand back up to the starting position.", category: "lower body", duration: "20 reps, twice", video: "0J6nVBwGUP4")
 Activity.create!(name: "Donkey Kicks", description: "1. Assume the starting position on all fours: knees hip-width apart, hands under your shoulders, neck and spine neutral. 2. Bracing your core, begin to lift your right leg, knee staying bent, foot staying flat, and hinging at the hip. 3. Use your glute to press your foot directly toward the ceiling and squeeze at the top. Ensure your pelvis and working hip stay pointed toward the ground. 4. Return to the starting position.", category: "lower body", duration: "10 reps each side, twice", video: "hSJ1Xuz9D-ZQ")
+
+a_game_win = Game.create!(win: true, user_id: andrew.id, level: 0)
+a_game_lose = Game.create!(user_id: andrew.id, level: 0)
+
+pushups = Activity.create!(name: "pushups", category: "upper body", duration: "10 reps", video: "video.com", description: "push the earth down")
+
+a_game_activity = GameActivity.create!(game_id: a_game_win.id, activity_id: pushups.id)
+
+j_game = Game.create!(user_id: james.id, level: 0)
+
+situps = Activity.create!(name: "situps", category: "upper body", duration: "10 reps", video: "video.com", description: "push the earth down")
+
+j_game_activity = GameActivity.create!(game_id: j_game.id, activity_id: situps.id)

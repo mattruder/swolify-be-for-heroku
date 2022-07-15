@@ -1,6 +1,8 @@
 require "rails_helper"
 
 describe GameActivity do
+  let!(:free_activity) { Activity.create!(name: "Free space", description: "free space", video: "free@video", category: "free", duration: "free") }
+  
   describe "relationships" do
     it { should belong_to :game }
     it { should belong_to :activity }
