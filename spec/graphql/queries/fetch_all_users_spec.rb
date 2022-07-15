@@ -16,6 +16,7 @@ RSpec.describe 'all users query' do
     }
     GQL
     result = SwolifyBeSchema.execute(query)
-    require "pry"; binding.pry
+    users = result.dig("data", "fetchAllUsers").map { |user| user["name"] }
+    expect(users).to eq(["Susan", "James", "Andrew"])
   end
 end
