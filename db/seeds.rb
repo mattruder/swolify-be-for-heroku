@@ -6,20 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-
 Activity.destroy_all
+GameActivity.destroy_all
+Game.destroy_all
 
 susan = User.create!(name: "susan", email: "susan@example.com")
 james = User.create!(name: "james", email: "james@example.com")
 andrew = User.create!(name: "andrew", email: "andrew@example.com")
 
-FactoryBot.create_list(:activity, 16, category: 0)
-FactoryBot.create_list(:activity, 16, category: 1)
-FactoryBot.create_list(:activity, 16, category: 2)
-FactoryBot.create_list(:activity, 16, category: 3)
+# FactoryBot.create_list(:activity, 16, category: 0)
+# FactoryBot.create_list(:activity, 16, category: 1)
+# FactoryBot.create_list(:activity, 16, category: 2)
+# FactoryBot.create_list(:activity, 16, category: 3)
 
-GameActivity.destroy_all
-Game.destroy_all
+
 
 a_game_win = Game.create!(win: true, user_id: andrew.id, level: 0)
 a_game_lose = Game.create!(user_id: andrew.id, level: 0)
@@ -75,13 +75,13 @@ Activity.create!(name: "Rotational push-ups", description: "1. After coming back
 Activity.create!(name: "Flutter Kicks", description: "1. Lie faceup with your arms at your sides and your palms facing down. 2. With your legs extended, lift your heels about 6 inches off the floor. 3. Make small, quick, up-and-down pulses with your legs while keeping your core engaged. 4. Keep kickin’ it for a minute straight!", category: "core", duration: "1 minute, twice", video: "ANVdMDaYRts")
 Activity.create!(name: "Dynamic Prone Plank", description: "1. Starting in a standard plank position, raise your hips as high as they can go. 2. Lower them back down. 3. Continue this movement for as long as possible. 4. Make sure your back stays straight and your hips don’t droop.", category: "core", duration: "1 minute, twice", video: "XMxHTNPPgxM")
 Activity.create!(name: "Side Plank", description: "1. Lie faceup and roll to the side. 2. Come up onto one foot and elbow. 3. Make sure your hips are lifted and your core is engaged. 4. Hang tight", category: "core", duration: "30 seconds, each side, twice", video: "K2VljzCC16g")
-Activity.create!(name: "Russian Twist", description: "1. Sit on the floor with your knees bent and feet together, lifted a few inches off the floor. 2. With your back at a 45-degree angle to the floor, move your arms from side to side in a twisting motion. 3. Here, slow and steady wins the race: The slower the twist, the deeper the burn.", duration: "20 times, twice", video: "NeAtimSCxsY")
-Activity.create!(name: "Bicycle", description: "1. Lie faceup with your knees bent and your hands behind your head. 2. Bring your knees in toward your chest. 3. Bring your right elbow toward your left knee as your right leg straightens. 4. Continue alternating sides like you’re pedaling a bike.", duration: "20 times, twice", video: "UZZhuJACZJM")
-Activity.create!(name: "Crunches", description: "1. Lie faceup with your knees bent and your feet flat on the floor. 2. With your hands behind your head, lower your chin slightly. 3. Peel your head and shoulders off the floor while engaging your core. 4. Continue curling up until your upper back is off the mat. 5. Hold briefly, then slowly lower your torso back toward the floor.", duration: "20 times, twice", video: "Xyd_fa5zoEU")
-Activity.create!(name: "Segmental Rotation", description: "1. Lying faceup with your knees bent and core tight, let your knees fall gradually to the left until you feel a good stretch. 2. Hold for 5 seconds, then return to the center. 3. Repeat on the right.", duration: "20 times, twice", video: "cB_DuW0zT5g")
-Activity.create!(name: "Sprinter Sit Ups", description: "1. Lie faceup with your legs straight and your arms by your sides with your elbows bent at a 90-degree angle. 2. Now, sit up and bring your left knee toward your right elbow. Return to the starting position. 3. Repeat on the other side.", duration: "20 times, twice", video: "EVlW1iZMj5c")
-Activity.create!(name: "Butterfly Sit Ups", description: "1. Lie faceup with the soles of your feet together, knees bent out to sides. Reach your arms overhead. This is starting position. 2. Using your core, roll your body up until you are sitting upright. Reach forward to touch your toes. That's one rep. 3. Slowly lower back down to starting position and continue immediately into the next rep.", duration: "15 times, twice", video: "O4_u-dOYBA0")
-Activity.create!(name: "Dead Bug", description: "1. Lie faceup with your arms extended toward the ceiling and your legs in a tabletop position (knees bent 90 degrees and stacked over your hips). This is starting position. 2. Slowly extend your right leg straight, while simultaneously dropping your left arm overhead. Keep both a few inches from the ground. Squeeze your butt and keep your core engaged the entire time, lower back pressed into the floor. 3. Bring your arm and leg back to the starting position. 4. Repeat on the other side, extending your left leg and your right arm.", duration: "10 times each side, twice", video: "izVNWXxQBVk")
+Activity.create!(name: "Russian Twist", description: "1. Sit on the floor with your knees bent and feet together, lifted a few inches off the floor. 2. With your back at a 45-degree angle to the floor, move your arms from side to side in a twisting motion. 3. Here, slow and steady wins the race: The slower the twist, the deeper the burn.", category: "core", duration: "20 times, twice", video: "NeAtimSCxsY")
+Activity.create!(name: "Bicycle", description: "1. Lie faceup with your knees bent and your hands behind your head. 2. Bring your knees in toward your chest. 3. Bring your right elbow toward your left knee as your right leg straightens. 4. Continue alternating sides like you’re pedaling a bike.", category: "core", duration: "20 times, twice", video: "UZZhuJACZJM")
+Activity.create!(name: "Crunches", description: "1. Lie faceup with your knees bent and your feet flat on the floor. 2. With your hands behind your head, lower your chin slightly. 3. Peel your head and shoulders off the floor while engaging your core. 4. Continue curling up until your upper back is off the mat. 5. Hold briefly, then slowly lower your torso back toward the floor.", category: "core", duration: "20 times, twice", video: "Xyd_fa5zoEU")
+Activity.create!(name: "Segmental Rotation", description: "1. Lying faceup with your knees bent and core tight, let your knees fall gradually to the left until you feel a good stretch. 2. Hold for 5 seconds, then return to the center. 3. Repeat on the right.", category: "core", duration: "20 times, twice", video: "cB_DuW0zT5g")
+Activity.create!(name: "Sprinter Sit Ups", description: "1. Lie faceup with your legs straight and your arms by your sides with your elbows bent at a 90-degree angle. 2. Now, sit up and bring your left knee toward your right elbow. Return to the starting position. 3. Repeat on the other side.", category: "core", duration: "20 times, twice", video: "EVlW1iZMj5c")
+Activity.create!(name: "Butterfly Sit Ups", description: "1. Lie faceup with the soles of your feet together, knees bent out to sides. Reach your arms overhead. This is starting position. 2. Using your core, roll your body up until you are sitting upright. Reach forward to touch your toes. That's one rep. 3. Slowly lower back down to starting position and continue immediately into the next rep.", category: "core", duration: "15 times, twice", video: "O4_u-dOYBA0")
+Activity.create!(name: "Dead Bug", description: "1. Lie faceup with your arms extended toward the ceiling and your legs in a tabletop position (knees bent 90 degrees and stacked over your hips). This is starting position. 2. Slowly extend your right leg straight, while simultaneously dropping your left arm overhead. Keep both a few inches from the ground. Squeeze your butt and keep your core engaged the entire time, lower back pressed into the floor. 3. Bring your arm and leg back to the starting position. 4. Repeat on the other side, extending your left leg and your right arm.", category: "core", duration: "10 times each side, twice", video: "izVNWXxQBVk")
 
 
 ## maybe cardio/full body 7
