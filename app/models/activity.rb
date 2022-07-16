@@ -4,5 +4,5 @@ class Activity < ApplicationRecord
 
   validates_presence_of :name, :duration, :video, :description
 
-  enum category: ["upper body", "lower body", "core", "cardio"]
+  enum category: ["upper body", "lower body", "core", "cardio", "free"]
 end

@@ -6,6 +6,7 @@ describe 'createGame mutation', type: :request do
   let!(:lower_body_activities) { create_list(:activity, 16, category: 1) }
   let!(:core_activities) { create_list(:activity, 16, category: 2) }
   let!(:cardio_activities) { create_list(:activity, 16, category: 3) }
+  let!(:free_activity) { Activity.create!(name: "Free space", description: "free space", video: "free@video", category: "free", duration: "free") } 
 
   describe '.resolve' do
     it 'creates an easy game with 9 unique activities' do
