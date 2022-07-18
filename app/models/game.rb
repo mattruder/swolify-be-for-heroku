@@ -31,7 +31,7 @@ class Game < ApplicationRecord
     if !valid_categories(categories).empty?
       return true
     else
-      errors.add(:categories, "Must have at least one category")
+      errors.add(:categories, "Must have at least one valid category")
       return false
     end
   end

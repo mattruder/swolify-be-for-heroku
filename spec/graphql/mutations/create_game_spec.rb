@@ -184,7 +184,7 @@ describe 'createGame mutation', type: :request do
       GQL
 
       result = SwolifyBeSchema.execute(query)
-      expect(result.dig("data", "createGame", "errors")).to eq(["Categories Must have at least one category"])
+      expect(result.dig("data", "createGame", "errors")).to eq(["Categories Must have at least one valid category"])
 
       expect(Game.all.count).to eq(0)
     end
@@ -209,6 +209,7 @@ describe 'createGame mutation', type: :request do
               description
               duration
               video
+              category
               }
             }
           }
@@ -218,7 +219,8 @@ describe 'createGame mutation', type: :request do
       GQL
 
       result = SwolifyBeSchema.execute(query)
-      require "pry"; binding.pry
+      game_result = result.dig("data", "createGame", "game")
+
     end
   end
 end
