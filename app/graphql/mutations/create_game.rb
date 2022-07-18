@@ -6,7 +6,7 @@ class Mutations::CreateGame < Mutations::BaseMutation
 
   def resolve(params:)
     game = Game.new(level: params[:level], user_id: params[:user_id])
-    if game.save
+    if game.categories_present?(params[:categories]) && game.save
       game.add_activities(params[:categories])
       {
         game: game,

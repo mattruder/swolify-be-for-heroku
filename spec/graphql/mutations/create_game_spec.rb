@@ -184,6 +184,40 @@ describe 'createGame mutation', type: :request do
       GQL
 
       result = SwolifyBeSchema.execute(query)
+      expect(result.dig("data", "createGame", "errors")).to eq(["Categories Must have at least one category"])
+
+      expect(Game.all.count).to eq(0)
+    end
+
+    it 'will delete any invalid categories and create a game with remaining valid ones' do
+      level = "easy"
+      categories = ["cardio", "core", "face"]
+      query = <<~GQL
+      mutation {
+        createGame(input: {params: {
+          userId: #{user.id},
+          level: "#{level}",
+          categories: #{categories}
+          }})
+        {
+        game {
+          userId
+          gameActivities{
+            id
+            activity {
+              name
+              description
+              duration
+              video
+              }
+            }
+          }
+          errors
+        }
+      }
+      GQL
+
+      result = SwolifyBeSchema.execute(query)
       require "pry"; binding.pry
     end
   end
