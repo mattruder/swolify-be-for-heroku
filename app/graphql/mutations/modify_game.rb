@@ -1,7 +1,7 @@
 class Mutations::ModifyGame < Mutations::BaseMutation
   argument :params, Types::Input::GameInputType, required: true
 
-  field :game, Types::GameType, null: true
+  field :game, Types::GameType, null: false
   field :success, Boolean, null: false
 
   def resolve(params:)
