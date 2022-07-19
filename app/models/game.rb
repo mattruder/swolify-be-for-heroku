@@ -11,7 +11,7 @@ class Game < ApplicationRecord
     activities << Activity.where(category: "free").first
   end
 
-  def game_completed_activities
+  def completed_activities
     activities = game_activities.where(completed: true)
     activities.map {|act| act.activity}
   end
