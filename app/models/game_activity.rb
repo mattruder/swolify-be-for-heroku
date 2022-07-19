@@ -4,7 +4,8 @@ class GameActivity < ApplicationRecord
 
   has_one :user, through: :game
 
-  def self.complete_by_ids(ids)
-    ids.each { |id| find(id).update(completed: true) }
+  def self.complete(ids)
+    where(id: ids).update(completed: true)
+    # ids.each { |id| find(id).update(completed: true) }
   end
 end

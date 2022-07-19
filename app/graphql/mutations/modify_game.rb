@@ -5,9 +5,10 @@ class Mutations::ModifyGame < Mutations::BaseMutation
   field :success, Boolean, null: false
 
   def resolve(params:)
+    require "pry"; binding.pry
     game = Game.find(params[:id])
     if game.update(win: params[:win])
-      game.complete_game_activities(params[:activities])
+      game.game_activities.complete_by_ids(params[:activities])
       {
         game: game,
         success: true

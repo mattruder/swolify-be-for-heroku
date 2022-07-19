@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "modifyGame mutation", type: :request do
   let!(:free_activity) { Activity.create!(name: "Free space", description: "free space", video: "free@video", category: "free", duration: "free") }
-  
+
   describe "resolve" do
     it "updates a games win boolean and updates the specified game activities to completed" do
       user = User.create!(name: "Tony Soprano", email: "who_ate_all_the_gabagool@sopranos.net")
@@ -28,7 +28,7 @@ describe "modifyGame mutation", type: :request do
 
       query = <<~GQL
         mutation {
-          modifyGame(input: { params: { id: #{game.id}, win: true, activities: ["Sit Ups", "Jumping Jacks", "Wall Sits", "BW Squats"]}}) {
+          modifyGame(input: { params: { id: #{game.id}, win: true, activities: [#{game_activity_2.id}, #{game_activity_3.id}, #{game_activity_5.id}, #{game_activity_6.id}]}}) {
             game {
               id
               win

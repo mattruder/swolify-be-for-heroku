@@ -6,6 +6,7 @@ module Types
     field :wins, Integer, null: true
     field :losses, Integer, null: true
     field :game_count, Integer, null: true
+    field :games, [Types::GameType], null: true
     field :activity_count, Integer, null: true
     field :activities, [Types::ActivityType], null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
