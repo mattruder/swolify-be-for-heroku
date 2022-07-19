@@ -27,13 +27,28 @@ class Game < ApplicationRecord
     end
   end
 
+  def categories_present?(categories)
+    if valid_categories(categories).any?
+      return true
+    else
+      errors.add(:categories, "Must have at least one valid category")
+      return false
+    end
+  end
+
+  def valid_categories(categories)
+    valid = ["cardio", "core", "upper body", "lower body"]
+    categories.select {|cat| valid.include?(cat)}
+  end
+
   def add_activities(categories)
-    turns = activity_num.divmod(categories.count)
+    categories_to_add = valid_categories(categories)
+    turns = activity_num.divmod(categories_to_add.count)
     turns[0].times do
-      categories.each { |cat| unique_activity(cat) }
+      categories_to_add.each { |cat| unique_activity(cat) }
     end
     if turns[1] > 0
-      turns[1].times {unique_activity(categories)}
+      turns[1].times {unique_activity(categories_to_add)}
     end
   end
 

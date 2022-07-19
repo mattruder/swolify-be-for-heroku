@@ -2,7 +2,7 @@ module Types
   class ActivityType < Types::BaseObject
     field :id, ID, null: false
     field :name, String, null: true
-    field :category, Integer, null: true
+    field :category, String, null: true
     field :duration, String, null: true
     field :video, String, null: true
     field :description, String, null: true

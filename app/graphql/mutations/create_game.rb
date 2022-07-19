@@ -1,16 +1,16 @@
 class Mutations::CreateGame < Mutations::BaseMutation
   argument :params, Types::Input::NewGameInputType, required: true
 
-  field :game, Types::GameType, null: false
-  field :errors, [String], null: false
+  field :game, Types::GameType, null: true
+  field :errors, [String], null: true
 
   def resolve(params:)
     game = Game.new(level: params[:level], user_id: params[:user_id])
-    if game.save
+    if game.categories_present?(params[:categories]) && game.save
       game.add_activities(params[:categories])
       {
         game: game,
-        errors: nil
+        errors: []
       }
     else
       {

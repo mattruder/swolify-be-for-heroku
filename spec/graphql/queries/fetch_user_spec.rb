@@ -146,7 +146,7 @@ RSpec.describe 'user query' do
     game_activity_4 = game.game_activities.create!(activity: activity_6)
     game_activity_5 = game.game_activities.create!(activity: activity_9)
     game_activity_6 = game.game_activities.create!(activity: activity_10)
-    
+
     query = <<~GQL
     query {
       fetchUser(id: #{user.id}) {
@@ -165,6 +165,6 @@ RSpec.describe 'user query' do
 
     result = SwolifyBeSchema.execute(query)
 
-    expect(result.dig("data", "fetchUser", "activityCount")).to eq(5) #accounts for free spaces for all games
+    expect(result.dig("data", "fetchUser", "activityCount")).to eq(2)
   end
 end
