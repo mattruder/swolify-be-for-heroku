@@ -11,20 +11,9 @@ class Game < ApplicationRecord
     activities << Activity.where(category: "free").first
   end
 
-  def complete_game_activities(activity_names)
-    GameActivity.complete_by_ids(completed_game_activities(activity_names))
-  end
-
-  def completed_activities(activity_names)
-    activity_names.map do |activity|
-      activities.where(name: activity)
-    end
-  end
-
-  def completed_game_activities(activity_names)
-    completed_activities(activity_names).map do |activity|
-      GameActivity.find_by(activity_id: activity.ids.first).id
-    end
+  def completed_activities
+    activities = game_activities.where(completed: true)
+    activities.map {|act| act.activity}
   end
 
   def categories_present?(categories)

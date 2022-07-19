@@ -7,7 +7,7 @@ class Mutations::ModifyGame < Mutations::BaseMutation
   def resolve(params:)
     game = Game.find(params[:id])
     if game.update(win: params[:win])
-      game.complete_game_activities(params[:activities])
+      game.game_activities.complete(params[:activities])
       {
         game: game,
         success: true
