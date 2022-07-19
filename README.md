@@ -288,6 +288,6 @@ GameActivityType {
 
 ## Contributors:
 
-Susan Boyd - [GitHub](https://github.com/sueboyd922) | [LinkedIn](https://www.linkedin.com/in/susan-boyd-6ba8749b/)
-James Harkins - [GitHub](https://github.com/James-Harkins) | [LinkedIn](https://www.linkedin.com/in/james-harkins-co/)
-Andrew Speth - [GitHub](https://github.com/aspeth) | [LinkedIn](https://www.linkedin.com/in/andrew-speth/)
+### Susan Boyd - [GitHub](https://github.com/sueboyd922) | [LinkedIn](https://www.linkedin.com/in/susan-boyd-6ba8749b/)
+### James Harkins - [GitHub](https://github.com/James-Harkins) | [LinkedIn](https://www.linkedin.com/in/james-harkins-co/)
+### Andrew Speth - [GitHub](https://github.com/aspeth) | [LinkedIn](https://www.linkedin.com/in/andrew-speth/)
