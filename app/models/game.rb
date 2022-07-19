@@ -11,37 +11,10 @@ class Game < ApplicationRecord
     activities << Activity.where(category: "free").first
   end
 
-  # def complete_game_activities(activity_names)
-  #   require "pry"; binding.pry
-  #   GameActivity.complete_by_ids(completed_game_activities(activity_names))
-  #   # require "pry"; binding.pry
-  # end
-
-  # def completed_game_activities(activity_names)
-  #   acts = game_activities.joins(:activity).where(activities: {name: activity_names})
-  #   acts.map {|a| a.id }
-  #   # require "pry"; binding.pry
-  # end
-
   def game_completed_activities
-    # activities.joins(:game_activities).where(game_activities: {completed: true, game: self})
     activities = game_activities.where(completed: true)
     activities.map {|act| act.activity}
   end
-
-  # def completed_activities(activity_names)
-  #   require "pry"; binding.pry
-  #   activity_names.map do |activity|
-  #     activities.where(name: activity)
-  #   end
-  # end
-  # #
-  # def completed_game_activities(activity_names)
-  #   require "pry"; binding.pry
-  #   completed_activities(activity_names).map do |activity|
-  #     GameActivity.find_by(activity_id: activity.ids.first).id
-  #   end
-  # end
 
   def categories_present?(categories)
     if valid_categories(categories).any?

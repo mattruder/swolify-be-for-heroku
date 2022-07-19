@@ -6,6 +6,5 @@ class GameActivity < ApplicationRecord
 
   def self.complete(ids)
     where(id: ids).update(completed: true)
-    # ids.each { |id| find(id).update(completed: true) }
   end
 end
