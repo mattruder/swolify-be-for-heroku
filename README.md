@@ -9,7 +9,7 @@ This is the Back End Application for Swolify, built in Ruby on Rails using Graph
 * Expose an API for CRUD functionality for Users, Games, and Activities in the database, to be consumed by a Front End App in React
 * Use GraphQL for API endpoints / communication with the Front End
 
-## JSON Contract
+## JSON Contract (GraphQL)
 
 ### Fetch All Users
 
