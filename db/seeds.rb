@@ -13,14 +13,11 @@ Game.destroy_all
 
 
 #user seeds
-User.create!(name: "Susan", email: "susan@turing.com")
-User.create!(name: "Andrew", email: "andrew@turing.com")
-User.create!(name: "James", email: "James@turing.com")
-User.create!(name: "Matt", email: "Matt@turing.com")
-User.create!(name: "Oakley", email: "Oakley@turing.com")
-User.create!(name: "Kevin", email: "Kevin@turing.com")
-User.create!(name: "Tyler", email: "Tyler@turing.com")
-User.create!(name: "Eli", email: "Eli@turing.com")
+User.create!(name: "Alan", email: "alan@turing.com")
+User.create!(name: "Denise", email: "denise@turing.com")
+User.create!(name: "Jeff", email: "jeff@turing.com")
+User.create!(name: "Robyn", email: "robyn@turing.com")
+
 
 #activity seeds
 
