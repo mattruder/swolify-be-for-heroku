@@ -84,12 +84,40 @@ Response:
       "losses": 1,
       "gameCount": 2,
       "activityCount": 1,
-      "activities": [
-        {
-          "name": "pushups"
-        }
-      ]
-    }
+      "games": [
+                {
+                    "win": false,
+                    "completedActivities": [
+		    	{
+			   "name": "Jumping Jacks"
+			 },
+			 {
+			   "name": "Drink Water"
+			 },
+			 {
+			    "name": "Russian Twist"
+			 }
+		     ]
+                }....
+                {
+                    "win": true,
+                    "completedActivities": [
+                        {
+                            "name": "Run"
+                        },
+                        {
+                            "name": "Push Ups"
+                        },
+                        {
+                            "name": "Box Toe Touches"
+                        },
+                        {
+                            "name": "Tricep Dips"
+                        }
+                    ]
+    		}
+	      ]
+     }
   }
 }
 ```
