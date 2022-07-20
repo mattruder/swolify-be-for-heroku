@@ -252,6 +252,10 @@ WIN: Boolean - true or false, if game was won
 ACTIVITIES: Array of integers/ids of activities *COMPLETED* in game (corresponds with game_activity id)
 ```
 
+Explore the Swolify API in Postman!
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/986286affd73640911b6?action=collection%2Fimport)
+
 ## Database Schema
 
 ![Screen Shot 2022-07-19 at 3 43 46 PM](https://user-images.githubusercontent.com/93609855/179854173-1763eae5-8750-4fb7-9e85-97146dfef2d0.png)
