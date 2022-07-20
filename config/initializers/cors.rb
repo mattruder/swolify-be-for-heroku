@@ -17,7 +17,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://swolify-client.herokuapp.com', "https://swolify.github.io/swolify-fe/", "http://localhost:3000"
+    origins 'https://swolify-client.herokuapp.com', "https://swolify.github.io", "http://localhost:3000"
     resource '*', headers: :any, methods: [:post]
   end
 end
