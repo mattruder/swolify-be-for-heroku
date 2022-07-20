@@ -2,7 +2,11 @@
 
 ## Overview
 
-This is the Back End Application for Swolify, built in Ruby on Rails using GraphQL for communication with the Front End, built in React. This app was built in two weeks by a team of 3 back end devs. 
+This is the Back End Application for [Swolify](https://swolify-client.herokuapp.com/), built in Ruby on Rails using GraphQL for communication with the [Front End](https://github.com/Swolify/swolify-fe), built in React. This app was built in two weeks by a team of 3 back end devs. 
+
+## App Description
+
+Hate working out but love yelling bingo? Try Swolify! At Swolify, users play an Exercise Bingo game, selecting which forms of exercise they want to perform, and then Swolify randomly generates a number of exercises based on the difficulty setting selected by the user. The user then completes exercises one at a time, which complete randomized tiles on the Bingo board. The user then completes exercises until obtaining a Bingo.
 
 ## Learning Goals
 
