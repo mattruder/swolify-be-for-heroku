@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2022_08_07_135137) do
   create_table "streaks", force: :cascade do |t|
     t.bigint "user_id"
     t.boolean "active", default: true
-    t.integer "days_in_a_row"
+    t.integer "days_in_a_row", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_streaks_on_user_id"
