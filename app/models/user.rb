@@ -26,6 +26,9 @@ class User < ApplicationRecord
   def update_or_create_streak
     if streaks.where(active: true).empty?
       Streak.create!(user_id: id)
+    else
+      streak = streaks.where(active: true).first
+      streak.increase_by_one
     end
   end
 end
