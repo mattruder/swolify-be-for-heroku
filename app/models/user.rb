@@ -33,10 +33,18 @@ class User < ApplicationRecord
   end
 
   def days_in_current_active_streak
-    streaks.where(active: true).first.days_in_a_row
+    if streaks.empty?
+      return 0
+    else
+      streaks.where(active: true).first.days_in_a_row
+    end
   end
 
   def days_in_longest_streak
-    streaks.order(days_in_a_row: :desc).first.days_in_a_row
+    if streaks.empty?
+      return 0
+    else
+      streaks.order(days_in_a_row: :desc).first.days_in_a_row
+    end
   end
 end

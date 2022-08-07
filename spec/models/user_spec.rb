@@ -16,6 +16,7 @@ describe User do
 
   describe 'instance methods' do
     let!(:user) { User.create!(name: "Nick Miller", email: "juliuspepperwood@the_loft.com")}
+    let!(:user_2) { User.create!(name: "Tony Soprano", email: "who_ate_all_the_gabagool@sopranos.net")}
 
     describe 'update_or_create_streak' do
       it 'creates a new streak when it has no active ones' do
@@ -54,6 +55,7 @@ describe User do
       streak_3 = user.streaks.create!(active: true, days_in_a_row: 5)
 
       expect(user.days_in_current_active_streak).to eq(5)
+      expect(user_2.days_in_current_active_streak).to eq(0)
     end
 
     it 'days_in_longest_streak' do
@@ -62,6 +64,7 @@ describe User do
       streak_3 = user.streaks.create!(active: true, days_in_a_row: 5)
 
       expect(user.days_in_longest_streak).to eq(8)
+      expect(user_2.days_in_longest_streak).to eq(0)
     end
   end
 end
