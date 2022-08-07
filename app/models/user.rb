@@ -31,4 +31,12 @@ class User < ApplicationRecord
       streak.increase_by_one
     end
   end
+
+  def days_in_current_active_streak
+    streaks.where(active: true).first.days_in_a_row
+  end
+
+  def days_in_longest_streak
+    streaks.order(days_in_a_row: :desc).first.days_in_a_row
+  end
 end

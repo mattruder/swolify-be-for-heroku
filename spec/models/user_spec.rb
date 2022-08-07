@@ -31,7 +31,7 @@ describe User do
       it 'adds a day to an existing streak if one is active' do
         streak = user.streaks.create!(created_at: Date.yesterday, updated_at: Date.yesterday, active: true)
         expect(streak.days_in_a_row).to eq(1)
-        
+
         user.update_or_create_streak
 
         expect(user.streaks.count).to eq(1)
@@ -46,6 +46,22 @@ describe User do
         user.update_or_create_streak
         expect(Streak.find(streak.id).days_in_a_row).to eq(2)
       end
+    end
+
+    it 'days_in_current_active_streak' do
+      streak_1 = user.streaks.create!(active: false, days_in_a_row: 4)
+      streak_2 = user.streaks.create!(active: false, days_in_a_row: 8)
+      streak_3 = user.streaks.create!(active: true, days_in_a_row: 5)
+
+      expect(user.days_in_current_active_streak).to eq(5)
+    end
+
+    it 'days_in_longest_streak' do
+      streak_1 = user.streaks.create!(active: false, days_in_a_row: 4)
+      streak_2 = user.streaks.create!(active: false, days_in_a_row: 8)
+      streak_3 = user.streaks.create!(active: true, days_in_a_row: 5)
+
+      expect(user.days_in_longest_streak).to eq(8)
     end
   end
 end
