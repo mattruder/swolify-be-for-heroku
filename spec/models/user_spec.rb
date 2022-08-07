@@ -5,6 +5,7 @@ describe User do
     it { should have_many :games }
     it { should have_many(:game_activities).through(:games) }
     it { should have_many(:activities).through(:game_activities) }
+    it { should have_many(:streaks) }
   end
 
   describe "validations" do

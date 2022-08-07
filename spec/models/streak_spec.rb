@@ -6,7 +6,7 @@ RSpec.describe Streak, type: :model do
   end
 
   describe 'validations' do
-    it { should validate_presence_of :active }
+    # it { should validate_inclusion_of(:active).in_array([true, false]) }
     it { should validate_presence_of :days_in_a_row }
     it 'default value of true for active attribute and 1 day in a row' do
       user = User.create!(name: "Tony Soprano", email: "who_ate_all_the_gabagool@sopranos.net")

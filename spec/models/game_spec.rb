@@ -18,6 +18,23 @@ describe Game do
     end
 
     it { should validate_presence_of :level }
+
+    it 'creates a new streak for the user when the game completes with a win' do
+      user = User.create!(name: "Tony Soprano", email: "who_ate_all_the_gabagool@sopranos.net")
+      game = user.games.create!(level: 0)
+      game.update(win: true)
+
+      expect(user.streaks.count).to eq(1)
+    end
+
+    it 'does not create new streak for the user when the game completes with a loss' do
+      user = User.create!(name: "Tony Soprano", email: "who_ate_all_the_gabagool@sopranos.net")
+      game = user.games.create!(level: 0)
+      game.update(win: false)
+
+      expect(user.streaks.count).to eq(0)
+    end
+
   end
 
   describe "instance methods" do
