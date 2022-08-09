@@ -55,6 +55,7 @@ describe User do
       streak_3 = user.streaks.create!(active: true, days_in_a_row: 5)
 
       expect(user.days_in_current_active_streak).to eq(5)
+      streak_4 = user_2.streaks.create!(active: false, days_in_a_row: 3)
       expect(user_2.days_in_current_active_streak).to eq(0)
     end
 

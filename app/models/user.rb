@@ -33,10 +33,11 @@ class User < ApplicationRecord
   end
 
   def days_in_current_active_streak
-    if streaks.empty?
+    current_streak = streaks.where(active: true)
+    if current_streak.empty?
       return 0
     else
-      streaks.where(active: true).first.days_in_a_row
+      current_streak.first.days_in_a_row
     end
   end
 
