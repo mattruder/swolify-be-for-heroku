@@ -3,6 +3,7 @@ class Game < ApplicationRecord
   has_many :game_activities, dependent: :destroy
   has_many :activities, through: :game_activities
   after_create :add_free_activity
+  after_update :user_streak_update
 
   validates_presence_of :level
   enum level: ["easy", "hard"]
@@ -55,6 +56,12 @@ class Game < ApplicationRecord
       8
     elsif self.hard?
       15
+    end
+  end
+
+  def user_streak_update
+    if win == true
+      user.update_or_create_streak
     end
   end
 end

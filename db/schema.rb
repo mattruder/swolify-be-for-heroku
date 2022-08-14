@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_09_201818) do
+ActiveRecord::Schema.define(version: 2022_08_07_135137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 2022_07_09_201818) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
+  create_table "streaks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.boolean "active", default: true
+    t.integer "days_in_a_row", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_streaks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -54,4 +63,5 @@ ActiveRecord::Schema.define(version: 2022_07_09_201818) do
   add_foreign_key "game_activities", "activities"
   add_foreign_key "game_activities", "games"
   add_foreign_key "games", "users"
+  add_foreign_key "streaks", "users"
 end
