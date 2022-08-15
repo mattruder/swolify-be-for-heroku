@@ -67,6 +67,8 @@ query {
     losses
     gameCount
     activityCount
+    daysInCurrentActiveStreak
+    daysInLongestStreak
     games {
        completedActivities {
            name
@@ -88,6 +90,8 @@ Response:
       "losses": 1,
       "gameCount": 2,
       "activityCount": 1,
+      "daysInCurrentActiveStreak": 2,
+      "daysInLongestStreak": 5
       "games": [
                 {
                     "win": false,
@@ -277,6 +281,8 @@ UserType {
   losses: Integer!
   gameCount: Integer!
   activityCount: Integer!
+  daysInCurrentActiveStreak: Integer!
+  daysInLongestStreak: Integer!
   games: [GameType]
   activities: [ActivityType]
 }
