@@ -101,10 +101,10 @@ day_2 = day_1.yesterday
 day_3 = day_2.yesterday
 day_4 = day_3.yesterday
 
-Streak.create!(user_id: alan.id, days_in_a_row: 5, created_at: day_4, updated_at: Date.today)
+Streak.create!(user_id: alan.id, days_in_a_row: 5, created_at: day_4, updated_at: Date.yesterday)
 Streak.create!(user_id: alan.id, days_in_a_row: 8, active: false, updated_at: day_2)
 
-Streak.create!(user_id: denise.id, days_in_a_row: 2, updated_at: Date.today)
+Streak.create!(user_id: denise.id, days_in_a_row: 2, updated_at: Date.yesterday)
 Streak.create!(user_id: denise.id, days_in_a_row: 1, active: false, updated_at: day_3)
 
 Streak.create!(user_id: jeff.id, days_in_a_row: 10, updated_at: day_2)
