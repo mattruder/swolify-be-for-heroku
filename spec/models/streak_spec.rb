@@ -29,7 +29,7 @@ RSpec.describe Streak, type: :model do
     it '#not_updated_yet_today' do
       yesterdays_streak = Streak.create!(created_at: Date.yesterday, updated_at: Date.yesterday, user_id: user.id)
       todays_streak = Streak.create!(user_id: user.id)
-
+      
       expect(yesterdays_streak.not_updated_yet_today).to eq(true)
       expect(todays_streak.not_updated_yet_today).to eq(false)
 
