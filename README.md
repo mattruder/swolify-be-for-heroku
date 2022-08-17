@@ -67,6 +67,8 @@ query {
     losses
     gameCount
     activityCount
+    daysInCurrentActiveStreak
+    daysInLongestStreak
     games {
        completedActivities {
            name
@@ -88,6 +90,8 @@ Response:
       "losses": 1,
       "gameCount": 2,
       "activityCount": 1,
+      "daysInCurrentActiveStreak": 2,
+      "daysInLongestStreak": 5
       "games": [
                 {
                     "win": false,
@@ -262,7 +266,7 @@ Explore the Swolify API in Postman!
 
 ## Database Schema
 
-![Screen Shot 2022-07-19 at 3 43 46 PM](https://user-images.githubusercontent.com/93609855/179854173-1763eae5-8750-4fb7-9e85-97146dfef2d0.png)
+<img width="1176" alt="Screen Shot 2022-08-14 at 6 54 21 PM" src="https://user-images.githubusercontent.com/96309924/184561761-817e79f5-99b8-4992-8dfa-aba087f5806b.png">
 
 ## GraphQL Types
 
@@ -277,6 +281,8 @@ UserType {
   losses: Integer!
   gameCount: Integer!
   activityCount: Integer!
+  daysInCurrentActiveStreak: Integer!
+  daysInLongestStreak: Integer!
   games: [GameType]
   activities: [ActivityType]
 }
