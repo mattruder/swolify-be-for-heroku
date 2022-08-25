@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is the Back End Application for [Swolify](https://swolify-client.herokuapp.com/), built in Ruby on Rails using GraphQL for communication with the [Front End](https://github.com/Swolify/swolify-fe), built in React. This app was built in two weeks by a team of 3 back end devs. 
+This is the Back End Application for [Swolify](https://swolify.github.io/swolify-fe/), built in Ruby on Rails using GraphQL for communication with the [Front End](https://github.com/Swolify/swolify-fe), built in React. This app was built in two weeks by a team of 3 back end devs. 
 
 ## App Description
 
